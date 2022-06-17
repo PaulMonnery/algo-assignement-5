@@ -1,21 +1,74 @@
-## If 'tensorflow.keras' dosen't work with error 'no moudle named ~', try 'import tensorflow.python.keras'. 
-### This error appears to have occurred during install tensorflow.
-## In Readme, you must attatch
-- What model you used
-- Training and Training loss 
-- Test Accuracy result
-- Images and corresponding probability that are predicted right
-- Images and corresponding probability that are predicted wrong 
+# Assignement 5
 
-### For Example
-#### 1. Model 
-![model](https://user-images.githubusercontent.com/55013577/81248661-d2b73d00-9057-11ea-913c-2a2d4e4806f3.png)
-#### 2. Training with Training loss 
-![Training](https://user-images.githubusercontent.com/55013577/81248789-2033aa00-9058-11ea-800f-7ccff5d334f6.png)
-#### 3. Test Accuracy
-![Test_acc](https://user-images.githubusercontent.com/55013577/81248920-6f79da80-9058-11ea-897b-34ab7e0d1743.png)
-#### 4. Images and corresponding probability that predicted Right 
-![right](https://user-images.githubusercontent.com/55013577/81248944-7bfe3300-9058-11ea-88cd-2cfb456c8945.png)
-#### 5. Images and corresponding probability that predicted Wrong
-![wrong](https://user-images.githubusercontent.com/55013577/81249056-b071ef00-9058-11ea-9d62-36a217a19906.png)
+## Model 1
+```python
+model = keras.models.Sequential(
+            [
+                keras.layers.Conv2D(32, (3, 3), activation="relu", input_shape=(28, 28, 1)),  # layer 1
+                keras.layers.MaxPool2D((2, 2)),  # layer 2
+                keras.layers.Flatten(),
+                keras.layers.Dense(10, activation="softmax"),
+            ]
+        )
+```
 
+#### Training with Training loss & Test Accuracy
+![Training](./model_1/accuracy.png)
+
+#### Images and corresponding probability that predicted Right
+![right](./model_1/output.png)
+
+#### Images and corresponding probability that predicted Wrong
+![wrong](./model_1/output_error.png)
+
+<br>
+
+## Model 2
+```python
+model = keras.models.Sequential(
+            [
+                keras.layers.Conv2D(32, (3, 3), activation="relu", input_shape=(28, 28, 1)),  # layer 1
+                keras.layers.MaxPool2D((2, 2)),  # layer 2
+                keras.layers.Conv2D(64, (3, 3), activation="relu"),  # layer 3
+                keras.layers.MaxPool2D((2, 2)),  # layer 4
+                keras.layers.Flatten(),
+                keras.layers.Dense(10, activation="softmax"),
+            ]
+        )
+```
+
+#### Training with Training loss & Test Accuracy
+![Training](./model_2/accuracy.png)
+
+#### Images and corresponding probability that predicted Right
+![right](./model_2/output.png)
+
+#### Images and corresponding probability that predicted Wrong
+![wrong](./model_2/output_error.png)
+
+<br>
+
+## Model 3
+```python
+model = keras.models.Sequential(
+            [
+                keras.layers.Conv2D(32, (3, 3), activation="relu", input_shape=(28, 28, 1)),  # layer 1
+                keras.layers.MaxPool2D((2, 2)),  # layer 2
+                keras.layers.Conv2D(64, (3, 3), activation="relu"),  # layer 3
+                keras.layers.Conv2D(64, (3, 3), activation="relu"),  # layer 4
+                keras.layers.MaxPool2D((2, 2)),  # layer 5
+                keras.layers.Conv2D(128, (3, 3), activation="relu"),  # layer 6
+                keras.layers.Flatten(),
+                keras.layers.Dense(10, activation="softmax"),
+            ]
+        )
+```
+
+#### Training with Training loss & Test Accuracy
+![Training](./model_3/accuracy.png)
+
+#### Images and corresponding probability that predicted Right
+![right](./model_3/output.png)
+
+#### Images and corresponding probability that predicted Wrong
+![wrong](./model_3/output_error.png)
